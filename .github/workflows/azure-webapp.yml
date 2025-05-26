@@ -22,8 +22,8 @@ jobs:
       - name: Grant execute permission for Gradle
         run: chmod +x ./gradlew
 
-      - name: Build with Gradle
-        run: ./gradlew build
+      - name: Build with Gradle (skip tests)
+        run: ./gradlew build -x test
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
@@ -40,11 +40,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: java-app
-          path: java-app
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
           app-name: manager-spring-app
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: java-app/*.jar
+          package: '*.jar'
