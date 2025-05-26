@@ -25,6 +25,9 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
 
+      - name: Check build output
+        run: ls -la build/libs/
+
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
