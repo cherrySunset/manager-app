@@ -1,5 +1,6 @@
 package com.example.managerapp.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,6 +27,7 @@ public class Task {
     private Deadline deadline;
 
     @ManyToOne
+    @JsonBackReference
     private Project project;
 
 }
