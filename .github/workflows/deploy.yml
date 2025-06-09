@@ -19,7 +19,7 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
-      - name: Build with Maven
+      - name: Build with Gradle
         run: mvn clean package
 
       - name: Deploy to Azure Web App
