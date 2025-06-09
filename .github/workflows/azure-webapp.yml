@@ -25,9 +25,6 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew clean bootJar
 
-      - name: Check build output
-        run: ls -la build/libs/
-
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
@@ -35,5 +32,3 @@ jobs:
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           slot-name: 'production'
           package: build/libs/*.jar
-
-
