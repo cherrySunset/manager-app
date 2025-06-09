@@ -1,15 +1,22 @@
-package com.example.managerapp;
+package com.example.managerapp.service;
 import com.example.managerapp.model.Deadline;
 import com.example.managerapp.repository.DeadlineRepository;
-import com.example.managerapp.service.DeadlineService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 public class DeadlineServiceTest {
     private DeadlineRepository deadlineRepository;
     private DeadlineService deadlineService;

@@ -1,24 +1,42 @@
-package com.example.managerapp;
+package com.example.managerapp.service;
 import com.example.managerapp.model.Notification;
+import com.example.managerapp.repository.DeadlineRepository;
 import com.example.managerapp.repository.NotificationRepository;
-import com.example.managerapp.service.NotificationService;
-import org.junit.jupiter.api.BeforeEach;
+import com.example.managerapp.repository.TaskRepository;
+import com.example.managerapp.repository.UserRepository;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
-public class NotificationServiceTest {
-    private NotificationRepository notificationRepository;
-    private NotificationService notificationService;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
-    @BeforeEach
-    void setUp() {
-        notificationRepository = mock(NotificationRepository.class);
-        notificationService = new NotificationService(notificationRepository);
-    }
+@ExtendWith(MockitoExtension.class)
+public class NotificationServiceTest {
+
+    @Mock
+    private NotificationRepository notificationRepository;
+
+    @Mock
+    private DeadlineRepository deadlineRepository;
+
+    @Mock
+    private UserRepository userRepository;
+
+    @Mock
+    private TaskRepository taskRepository;
+
+    @InjectMocks
+    private NotificationService notificationService;
 
     @Test
     void shouldCreateNotification() {

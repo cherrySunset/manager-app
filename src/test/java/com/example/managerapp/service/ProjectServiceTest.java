@@ -1,28 +1,32 @@
-package com.example.managerapp;
+package com.example.managerapp.service;
 
 import com.example.managerapp.model.Project;
 import com.example.managerapp.model.User;
 import com.example.managerapp.repository.ProjectRepository;
-import com.example.managerapp.service.ProjectService;
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.MeterRegistry;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.anyString;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 public class ProjectServiceTest {
 
     private ProjectRepository projectRepository;
     private ProjectService projectService;
     private MeterRegistry meterRegistry;
-
     private Counter mockCounter;
 
 

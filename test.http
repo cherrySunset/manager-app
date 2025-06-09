@@ -1,0 +1,3 @@
+### Message process with query params
+POST http://localhost:8080/messages/process?message=Deadline%20is%20close&userId=1
+Authorization: Basic YWRtaW46cGFzc3dvcmQ=
